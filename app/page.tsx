@@ -40,10 +40,9 @@ export default function Home() {
     };
     let digits = "";
     for (let i = 0; i < word.length; i++) {
-      digits +=
-        letterToDigitMap[
-          word[i].toUpperCase() as keyof typeof letterToDigitMap
-        ];
+      const char = word[i].toLocaleUpperCase();
+      if (char in letterToDigitMap)
+        digits += letterToDigitMap[char as keyof typeof letterToDigitMap];
     }
     setConverted(true);
     setDigits(digits);
@@ -61,7 +60,7 @@ export default function Home() {
         </button>
       </div>
       <div>
-        {converted && <h4 className="text-white">Encoded : {digits}</h4>}
+        {converted && <h4 className="text-white mt-6">Encoded : {digits}</h4>}
       </div>
     </div>
   );
