@@ -4,7 +4,7 @@ export default function Home() {
   const [word, setWord] = useState("");
   const [digits, setDigits] = useState("");
   const [converted, setConverted] = useState(false);
-  const handleWordChange = (e) => {
+  const handleWordChange = (e: any) => {
     setWord(e.target.value);
     setConverted(false);
   };
